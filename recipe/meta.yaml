@@ -6,13 +6,12 @@ package:
   version: {{ version }}
 
 source:
-  url: https://github.com/interpretml/interpret/archive/200f9c3f08da6f17bdbeaee0e3285a2458f92f18.tar.gz
-  # curl -sL https://github.com/interpretml/interpret/archive/200f9c3f08da6f17bdbeaee0e3285a2458f92f18.tar.gz | openssl sha256
-  sha256: e61f014fb24f0dae58e4099f6affd15713928e66eab5078892e546b704920b8b
-  # url: https://github.com/interpretml/interpret/archive/v{{ version }}.tar.gz
+  url: https://github.com/interpretml/interpret/archive/0b22c1d6de32fefd6cdfaadbe7762ffd536c1d10.tar.gz
+  # curl -sL https://github.com/interpretml/interpret/archive/0b22c1d6de32fefd6cdfaadbe7762ffd536c1d10.tar.gz | openssl sha256
+  sha256: 32093001b384f6fcca88231abe79b359df4110f76164056e1d7428585cba0779
 
 build:
-  number: 0
+  number: 1
   run_exports:
     - {{ pin_subpackage('libebm', max_pin='x.x.x') }}
   script: .\build.bat && copy .\staging\lib_ebm_native_win_x64.dll "%LIBRARY_BIN%\libebm.dll"  # [win]
@@ -26,7 +25,8 @@ requirements:
 
 test:
   commands:
-    - if not exist %LIBRARY_BIN%\libebm.dll exit 1  # [win]
+    - where libebm.dll  # [win]
+    # IF NOT EXIST "%LIBRARY_BIN%\libebm.dll" EXIT /B 1  # [win]
     - test -f $PREFIX/lib/libebm.so       # [linux]
     - test -f $PREFIX/lib/libebm.dylib     # [osx]
 
@@ -34,7 +34,7 @@ about:
   home: https://github.com/interpretml/interpret
   summary: Fit interpretable machine learning models. Explain blackbox machine learning.
   description: |
-    Shared library for **the** interpret package.
+    Shared library for the interpret package.
 
     https://github.com/interpretml/interpret
   license: MIT

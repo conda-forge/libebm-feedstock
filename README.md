@@ -206,5 +206,6 @@ In order to produce a uniquely identifiable distribution:
 Feedstock Maintainers
 =====================
 
+* [@interpret-ml](https://github.com/interpret-ml/)
 * [@paulbkoch](https://github.com/paulbkoch/)
 

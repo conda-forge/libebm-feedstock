@@ -1,22 +1,22 @@
 {% set name = "libebm" %}
-{% set version = "0.3.1" %}
+{% set version = "0.4.0" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  url: https://github.com/interpretml/interpret/archive/0b22c1d6de32fefd6cdfaadbe7762ffd536c1d10.tar.gz
-  # curl -sL https://github.com/interpretml/interpret/archive/0b22c1d6de32fefd6cdfaadbe7762ffd536c1d10.tar.gz | openssl sha256
-  sha256: 32093001b384f6fcca88231abe79b359df4110f76164056e1d7428585cba0779
+  url: https://github.com/interpretml/interpret/archive/83d0f345a6c4319f95ff8ddf2d20352c33b67576.tar.gz
+  # curl -sL https://github.com/interpretml/interpret/archive/83d0f345a6c4319f95ff8ddf2d20352c33b67576.tar.gz | openssl sha256
+  sha256: 253c13c4fea8a0c1bb56e75c7b3a59621cbbda21d3055fb85df7a5d38fb37bf4
 
 build:
-  number: 1
+  number: 0
   run_exports:
     - {{ pin_subpackage('libebm', max_pin='x.x.x') }}
-  script: .\build.bat && copy .\staging\lib_ebm_native_win_x64.dll "%LIBRARY_BIN%\libebm.dll"  # [win]
-  script: /bin/sh ./build.sh && cp ./python/interpret-core/interpret/lib/lib_ebm_native_linux_x64.so "$PREFIX/lib/libebm.so"  # [linux]
-  script: /bin/sh ./build.sh && cp ./python/interpret-core/interpret/lib/lib_ebm_native_mac_x64.dylib "$PREFIX/lib/libebm.dylib"  # [osx]
+  script: .\build.bat && copy .\staging\libebm_win_x64.dll "%LIBRARY_BIN%\libebm.dll"  # [win]
+  script: /bin/sh ./build.sh && cp ./python/interpret-core/interpret/lib/libebm_linux_x64.so "$PREFIX/lib/libebm.so"  # [linux]
+  script: /bin/sh ./build.sh && cp ./python/interpret-core/interpret/lib/libebm_mac_x64.dylib "$PREFIX/lib/libebm.dylib"  # [osx]
 
 requirements:
   build:
@@ -45,3 +45,4 @@ about:
 extra:
   recipe-maintainers:
     - paulbkoch
+    - interpret-ml

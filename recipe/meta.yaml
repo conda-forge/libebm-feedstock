@@ -15,8 +15,8 @@ build:
     - {{ pin_subpackage('libebm', max_pin='x.x.x') }}
   script: .\build.bat && copy .\staging\libebm_win_x64.dll "%LIBRARY_BIN%\libebm.dll"  # [win]
   script: /bin/sh ./build.sh && cp ./python/interpret-core/interpret/lib/libebm_linux_x64.so "$PREFIX/lib/libebm.so"  # [linux]
-  script: /bin/sh ./build.sh && cp ./python/interpret-core/interpret/lib/libebm_mac_x64.dylib "$PREFIX/lib/libebm.dylib"  # [osx and target_platform == "osx-64"]
-  script: /bin/sh ./build.sh && cp ./python/interpret-core/interpret/lib/libebm_mac_arm.dylib "$PREFIX/lib/libebm.dylib"  # [osx and target_platform == "osx-arm64"]
+  # the file is named libebm_mac_x64.dylib, but it should contain compiled code for whatever platform we're running on, so this should work at this time.
+  script: /bin/sh ./build.sh && cp ./python/interpret-core/interpret/lib/libebm_mac_x64.dylib "$PREFIX/lib/libebm.dylib"  # [osx]
 
 requirements:
   build:

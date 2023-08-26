@@ -1,13 +1,13 @@
 {% set name = "libebm" %}
-{% set version = "0.4.3" %}
+{% set version = "0.4.4" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  url: https://github.com/interpretml/interpret/archive/db1a6f47b9bac288a7df80b2e489c327ce895751.tar.gz
-  sha256: a083d22c879aca720fbaae077a65294d292b4bbf2977effac66cd947ee3e25ca
+  url: https://github.com/interpretml/interpret/archive/457efad6caa48d1f122304d10e0659ca915c99b6.tar.gz
+  sha256: 7bb958cf368f6eb50a3cd4d1ad1d87ec9116764ce30b64f32922b7c211a25c37
 
 build:
   number: 0
@@ -15,6 +15,7 @@ build:
     - {{ pin_subpackage('libebm', max_pin='x.x.x') }}
   script: .\build.bat && copy .\staging\libebm_win_x64.dll "%LIBRARY_BIN%\libebm.dll"  # [win]
   script: /bin/sh ./build.sh && cp ./python/interpret-core/interpret/lib/libebm_linux_x64.so "$PREFIX/lib/libebm.so"  # [linux]
+  # the file is named libebm_mac_x64.dylib, but it should contain compiled code for whatever platform we're running on, so this should work at this time.
   script: /bin/sh ./build.sh && cp ./python/interpret-core/interpret/lib/libebm_mac_x64.dylib "$PREFIX/lib/libebm.dylib"  # [osx]
 
 requirements:

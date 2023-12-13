@@ -1,13 +1,13 @@
 {% set name = "libebm" %}
-{% set version = "0.4.4" %}
+{% set version = "0.5.0" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  url: https://github.com/interpretml/interpret/archive/457efad6caa48d1f122304d10e0659ca915c99b6.tar.gz
-  sha256: 7bb958cf368f6eb50a3cd4d1ad1d87ec9116764ce30b64f32922b7c211a25c37
+  url: https://github.com/interpretml/interpret/archive/0131b2974a084fe258741b240c68bdb30b37bbe1.tar.gz
+  sha256: ba17c59b690db16bc1e4d653d82c0fac8fc10d07d9e2478e7b56dd39d4dccf9a
 
 build:
   number: 0
@@ -30,7 +30,7 @@ test:
 
 about:
   home: https://github.com/interpretml/interpret
-  summary: Fit interpretable machine learning models. Explain blackbox machine learning.
+  summary: Fit interpretable models. Explain blackbox machine learning.
   description: |
     Shared library for the interpret package.
 

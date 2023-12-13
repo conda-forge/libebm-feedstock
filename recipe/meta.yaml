@@ -13,9 +13,9 @@ build:
   number: 0
   run_exports:
     - {{ pin_subpackage('libebm', max_pin='x.x.x') }}
-  script: .\build.bat && copy .\bld\lib\libebm_win_x64.dll "%LIBRARY_BIN%\libebm.dll"  # [win]
-  script: /bin/sh ./build.sh && cp ./bld/lib/libebm.so "$PREFIX/lib/libebm.so"  # [linux]
-  script: /bin/sh ./build.sh && cp ./bld/lib/libebm.dylib "$PREFIX/lib/libebm.dylib"  # [osx]
+  script: .\build.bat -conda && copy .\bld\lib\libebm_win_x64.dll "%LIBRARY_BIN%\libebm.dll"  # [win]
+  script: /bin/sh ./build.sh -conda && cp ./bld/lib/libebm.so "$PREFIX/lib/libebm.so"  # [linux]
+  script: /bin/sh ./build.sh -conda && cp ./bld/lib/libebm.dylib "$PREFIX/lib/libebm.dylib"  # [osx]
 
 requirements:
   build:

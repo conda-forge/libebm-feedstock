@@ -1,13 +1,13 @@
 {% set name = "libebm" %}
-{% set version = "0.6.10" %}
+{% set version = "0.6.11" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  url: https://github.com/interpretml/interpret/archive/63332644b470d9a0dc99114451e8efb3c473a74e.tar.gz
-  sha256: 96ef2819abe151b4cf4ebd2882e3b091d751d5e185a9d44c25d1ed538b39553a
+  url: https://github.com/interpretml/interpret/archive/9805b78284cacc2711a1da7c4de2c31c716bedfe.tar.gz
+  sha256: 22bce6261c908b0368c8dd2911694c0ee0767a4ea594e54b7208bad6a30412a2
 
 build:
   number: 0
